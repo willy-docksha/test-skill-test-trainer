@@ -18,7 +18,7 @@ use App\Http\Controllers\API\BookingController;
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [RegisterController::class, 'login']);
-Route::get('check-avaiable-room', [BookingController::class, 'check_avaiable_room']);
+Route::post('check-avaiable-room', [BookingController::class, 'check_avaiable_room']);
 Route::post('book-now', [BookingController::class, 'book_now']);
 Route::post('check-in', [BookingController::class, 'check_in']);
 

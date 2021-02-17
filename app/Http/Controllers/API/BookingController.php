@@ -28,7 +28,7 @@ class BookingController extends BaseController
     {
         $rooms = DB::table('rooms')
             ->leftJoin('bookings', 'rooms.id', '=', 'bookings.room_id')
-            ->where('booking_time', '<>', $request->check_time);
+            ->where('booking_time', '!=', $request->check_time);
         return $this->sendResponse(RoomResource::collection($rooms), 'Avaiable room retrieved successfully.');
     }
 
