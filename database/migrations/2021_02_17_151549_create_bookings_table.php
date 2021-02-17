@@ -20,8 +20,8 @@ class CreateBookingsTable extends Migration
             $table->integer("total_person");
             $table->dateTime("booking_time");
             $table->text("noted");
-            $table->dateTime("check_in_time");
-            $table->dateTime("check_out_time");
+            $table->dateTime("check_in_time")->nullable();
+            $table->dateTime("check_out_time")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

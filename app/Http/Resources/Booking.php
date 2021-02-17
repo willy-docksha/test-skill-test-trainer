@@ -14,7 +14,6 @@ class Booking extends JsonResource
      */
     public function toArray($request)
     {
-        // return parent::toArray($request);
         return [
             'id' => $this->id,
             'user_id' => $this->user_id,
@@ -24,9 +23,6 @@ class Booking extends JsonResource
             'noted' => $this->noted,
             'check_in_time' => $this->check_in_time,
             'check_out_time' => $this->check_out_time,
-            'created_at' => $this->created_at->format('d/m/Y'),
-            'updated_at' => $this->updated_at->format('d/m/Y'),
-            'delete_at' => $this->delete_at->format('d/m/Y'),
         ];
     }
 }

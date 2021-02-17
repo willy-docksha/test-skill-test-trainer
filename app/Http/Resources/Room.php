@@ -20,9 +20,6 @@ class Room extends JsonResource
             'room_name' => $this->room_name,
             'room_capacity' => $this->room_capacity,
             'photo' => $this->photo,
-            'created_at' => $this->created_at->format('d/m/Y'),
-            'updated_at' => $this->updated_at->format('d/m/Y'),
-            'delete_at' => $this->delete_at->format('d/m/Y'),
         ];
     }
 }

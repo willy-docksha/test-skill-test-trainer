@@ -31,6 +31,13 @@ class RegisterController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        //upload image
+        if ($request->photo_profile != null) {
+            $imageName = "pp-" . $input['email'] . "." . $request->photo_profile->extension();
+            $request->photo_profile->move(public_path("images/"), $imageName);
+            $input["photo_profile"] = $imageName;
+        }
+
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
