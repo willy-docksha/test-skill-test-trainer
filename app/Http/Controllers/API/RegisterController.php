@@ -34,9 +34,11 @@ class RegisterController extends BaseController
         //upload image
         if ($request->photo_profile != null) {
             $imageName = "pp-" . $input['email'] . "." . $request->photo_profile->extension();
-            $request->photo_profile->move(public_path("images/"), $imageName);
+            $response = cloudinary()->upload($request->file('photo_profile')->getRealPath())->getSecurePath();
+            // $request->photo_profile->move(public_path("images/"), $imageName);
             $input["photo_profile"] = $imageName;
         }
+
 
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
